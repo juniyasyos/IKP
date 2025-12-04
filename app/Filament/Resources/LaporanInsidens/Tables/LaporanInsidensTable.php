@@ -20,11 +20,10 @@ class LaporanInsidensTable
     {
         return $table
             ->columns([
-                TextColumn::make('nomor_laporan')
-                    ->label('No. Laporan')
-                    ->searchable()
-                    ->sortable(),
-
+                // TextColumn::make('nomor_laporan')
+                //     ->label('No. Laporan')
+                //     ->searchable()
+                //     ->sortable(),
                 TextColumn::make('tanggal_insiden')
                     ->label('Tanggal Insiden')
                     ->date('d M Y')
