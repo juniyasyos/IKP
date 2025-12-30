@@ -3,6 +3,7 @@
 namespace App\Providers\Filament;
 
 use Andreia\FilamentNordTheme\FilamentNordThemePlugin;
+use BezhanSalleh\FilamentShield\FilamentShieldPlugin;
 use Filament\Http\Middleware\Authenticate;
 use Filament\Http\Middleware\AuthenticateSession;
 use Filament\Http\Middleware\DisableBladeIconComponents;
@@ -58,7 +59,21 @@ class AdminPanelProvider extends PanelProvider
                 DispatchServingFilamentEvent::class,
             ])
             ->plugins([
-                FilamentAwinTheme::make()
+                FilamentAwinTheme::make(),
+                FilamentShieldPlugin::make()
+                    ->navigationLabel('Label')                  // string|Closure|null
+                    ->navigationIcon('heroicon-o-home')         // string|Closure|null
+                    ->activeNavigationIcon('heroicon-s-home')   // string|Closure|null
+                    ->navigationGroup('Group')                  // string|Closure|null
+                    ->navigationSort(10)                        // int|Closure|null
+                    ->navigationBadge('5')                      // string|Closure|null
+                    ->navigationBadgeColor('success')           // string|array|Closure|null
+                    ->navigationParentItem('parent.item')       // string|Closure|null
+                    ->registerNavigation(true)                  // bool|Closure
+                    ->modelLabel('Model')                       // string|Closure|null
+                    ->pluralModelLabel('Models')                // string|Closure|null
+                    ->recordTitleAttribute('name')              // string|Closure|null
+                    ->titleCaseModelLabel(false)               // bool|Closure
             ])
             ->authMiddleware([
                 Authenticate::class,
